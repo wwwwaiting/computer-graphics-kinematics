@@ -16,9 +16,9 @@
 //   xb0  3*#b list of end-effector positions, ordered as [x0 y0 z0 x1 y1 z1 …]
 // Outputs:
 //   f  function handle that computes the least-squares objective value given a
-//     #bones list of Euler angles 
+//     #bones*3 list of Euler angles 
 //   grad_f  function handle that computes the least-squares objective gradient
-//     given a #bones list of Euler angles 
+//     given a #bones*3 list of Euler angles 
 //   proj_z  function handle that projects a given set of Euler angles onto the
 //     input skeleton's joint angles
 //   
