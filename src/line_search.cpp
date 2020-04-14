@@ -10,6 +10,18 @@ double line_search(
 {
   /////////////////////////////////////////////////////////////////////////////
   // Replace with your code
-  return 0;
+  double sigma = max_step;
+  Eigen::VectorXd z_moved = z - sigma*dz;
+  proj_z(z_moved);
+
+  while (f(z_moved) > f(z)){
+    sigma *= 0.5;
+    z_moved = z - sigma*dz;
+    proj_z(z_moved);
+    if (z_moved == z){
+      return 0;
+    }
+  }
+  return sigma;
   /////////////////////////////////////////////////////////////////////////////
 }
